@@ -1,32 +1,27 @@
-def calculate_grade(score):
-    if score >= 90:
-        return "A"
-    elif score >= 80:
-        return "B"
-    elif score >= 70:
-        return "C"
-    elif score >= 60:
-        return "D"
+def compare_words(word1, word2):
+    if word1 < word2:
+        return f"{word1} comes first"
+    elif word1 > word2:
+        return f"{word2} comes first"
     else:
-        return "F"
+        return "Both words are the same"
 
 def main():
-    try:
-        score = input("Enter Score: ")
-        
-        if not score.isnumeric():
-            print("Error, please enter numeric input between 0 and 100")
-            return
+    while True:
+        words_input = input("Please enter two words: ")
 
-        score = int(score)
+        if words_input.strip().lower() == 'done' or not words_input:
+            print("-- bye !!")
+            break
 
-        if 0 <= score <= 100:
-            grade = calculate_grade(score)
-            print(f"Grade is {grade}")
-        else:
-            print("Error, please enter numeric input between 0 and 100")
-    except ValueError:
-        print("Error, please enter numeric input between 0 and 100")
+        words = words_input.split()
 
+        if len(words) != 2:
+            continue
+
+        result = compare_words(words[0], words[1])
+        print(result)
+
+# Call the main function
 if __name__ == "__main__":
     main()

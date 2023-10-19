@@ -1,17 +1,13 @@
-def computepay(hours, rate):
-    if hours > 40:
-        return 40 * rate + (hours - 40) * 1.5 * rate
-    else:
-        return hours * rate
+def print_string_backwards(s):
+    index = len(s) - 1
+    while index >= 0:
+        print(s[index])
+        index -= 1
 
 def main():
-    try:
-        hours = float(input("Enter Hours: "))
-        rate = float(input("Enter Rate: "))
-        pay = computepay(hours, rate)
-        print(f"Pay: {pay:.2f}")
-    except ValueError:
-        print("Error, please enter numeric input")
+    input_string = input("Enter string: ")
+    print("Input string =", input_string)
+    print_string_backwards(input_string)
 
 # Call the main function
 if __name__ == "__main__":
